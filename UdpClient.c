@@ -10,6 +10,7 @@ int main()
 	
   printf("UdpClient Start\n");
   printf("2-UdpClient Start\n");
+  printf("2015年8月4日 主干上的代码，用于验证合并冲突\n")
   
   printf("2015年8月4日测试合并冲突\n")
   
