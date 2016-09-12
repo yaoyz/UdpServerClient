@@ -1,0 +1,20 @@
+currtime: 1473664411171355	m_ullNextACKTime: 1473664411078617	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 92738
+currtime: 1473664411282260	m_ullNextACKTime: 1473664411192192	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90068
+currtime: 1473664411409257	m_ullNextACKTime: 1473664411319246	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90011
+currtime: 1473664411510289	m_ullNextACKTime: 1473664411420172	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90117
+currtime: 1473664411628712	m_ullNextACKTime: 1473664411538666	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90046
+currtime: 1473664411758035	m_ullNextACKTime: 1473664411667943	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90092
+currtime: 1473664411884845	m_ullNextACKTime: 1473664411794703	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90142
+currtime: 1473664411991384	m_ullNextACKTime: 1473664411901354	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90030
+currtime: 1473664412097515	m_ullNextACKTime: 1473664412007388	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90127
+currtime: 1473664412260355	m_ullNextACKTime: 1473664412170162	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
+currtime - m_ullNextACKTime: 90193
