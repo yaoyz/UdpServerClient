@@ -1,3 +1,29 @@
+[CUDT::packData]:no packet loss
+(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+sendCtrl:Ack
+processCtrl:Ack2
+(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+sendCtrl:Keep-alive
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+processCtrl:keep-alive
+(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+sendCtrl:Keep-alive
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+
+
 currtime: 1473664411171355	m_ullNextACKTime: 1473664411078617	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
 currtime - m_ullNextACKTime: 92738
 currtime: 1473664411282260	m_ullNextACKTime: 1473664411192192	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
