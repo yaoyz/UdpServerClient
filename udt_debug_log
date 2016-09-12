@@ -1,3 +1,72 @@
+int CChannel::recvfrom(sockaddr* addr, CPacket& packet) const
+{
+   #ifndef WIN32
+      msghdr mh;   
+      mh.msg_name = addr;
+      mh.msg_namelen = m_iSockAddrSize;
+      mh.msg_iov = packet.m_PacketVector;
+      mh.msg_iovlen = 2;
+      mh.msg_control = NULL;
+      mh.msg_controllen = 0;
+      mh.msg_flags = 0;
+
+      #ifdef UNIX
+         fd_set set;
+         timeval tv;
+         FD_ZERO(&set);
+         FD_SET(m_iSocket, &set);
+         tv.tv_sec = 0;
+         tv.tv_usec = 10000;
+         ::select(m_iSocket+1, &set, NULL, &set, &tv);
+      #endif
+
+      int res = ::recvmsg(m_iSocket, &mh, 0);
+
+
+      CRNode* ul = self->m_pRcvUList->m_pUList;
+      uint64_t ctime = currtime - 100000 * CTimer::getCPUFrequency();
+       cout<<"Uper Loop"<<endl;
+      while ((NULL != ul) && (ul->m_llTimeStamp < ctime))
+      {
+          cout<<"Inner Loop"<<endl;
+         CUDT* u = ul->m_pUDT;
+
+         if (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+         {
+             //cout<<"TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)"<<endl;
+            u->checkTimers();
+            self->m_pRcvUList->update(u);
+         }
+
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 0
+sendCtrl:Ack
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+processCtrl:Ack2
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 1
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+[CRcvQueue::worker]<<recvfrom(addr, unit->m_Packet) < 0, goto TIMER_CHECK
+
+
+未接收到对端数据后，进入checktimer
 [CUDT::packData]:no packet loss
 (id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
 (id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
@@ -22,6 +91,38 @@ TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
 TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
 TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
 TIMER_CHECK: (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+
+接收到对端数据后，进入checktimer
+[CUDT::packData]:no packet loss
+[CUDT::packData]:entertime =1473665885059,m_ullTargetTime =0,m_ullTimeDiff =0,m_ullInterval =1
+[CSndQueue::worker]:sendTime:1473665885059ms
+[CUDT::packData]:no packet loss
+processCtrl:Ack
+sendCtrl:Ack2
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 1
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 0
+sendCtrl:Ack
+[CUDT::packData]:no packet loss
+processCtrl:Ack2
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 1
+[CUDT::packData]:no packet loss
+[CUDT::packData]:entertime =1473665885146,m_ullTargetTime =0,m_ullTimeDiff =0,m_ullInterval =1
+[CSndQueue::worker]:sendTime:1473665885146ms
+[CUDT::packData]:no packet loss
+processCtrl:Ack
+sendCtrl:Ack2
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 1
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 0
+sendCtrl:Ack
+[CUDT::packData]:no packet loss
+processCtrl:Ack2
+[CRcvQueue::worker]<<(id > 0) (u->m_bConnected && !u->m_bBroken && !u->m_bClosing)
+datatype(0-data, 1-control): 1
 
 
 currtime: 1473664411171355	m_ullNextACKTime: 1473664411078617	m_pCC->m_iACKInterval:0	m_iPktCount:0	m_pCC->m_iACKPeriod: 10000	m_ullACKInt:10000	m_ullCPUFrequency: 1
